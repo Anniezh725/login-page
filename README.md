@@ -55,10 +55,3 @@ duty-checkin/
 - Clicking "Check In" / "Check Out" POSTs to `/checkin/<id>`, which flips
   the employee's status and updates the timestamp.
 
-## Possible next steps (good talking points for an interview)
-- Separate "admin" vs "employee" roles/permissions
-- A `/history` page logging every check-in/out event, not just current status
-- Employee self-service: each employee logs in and can only toggle their
-  own status
-- Deploy it (Render, Railway, Fly.io) so it's a live demo link, not just a repo
-- Swap SQLite for Postgres when moving beyond a single-file demo
