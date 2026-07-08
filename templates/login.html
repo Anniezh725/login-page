@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Log In - Duty Board{% endblock %}
+
+{% block content %}
+<div class="login-wrap">
+    <form class="login-card" method="POST" action="{{ url_for('login') }}">
+        <h1>Staff Login</h1>
+        <p class="subtitle">Sign in to view and update the duty board.</p>
+
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" required autofocus>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+        <button type="submit">Log In</button>
+
+        <p class="hint">Demo credentials: <code>admin</code> / <code>admin123</code></p>
+    </form>
+</div>
+{% endblock %}

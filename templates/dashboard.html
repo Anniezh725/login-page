@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Duty Board{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <div>
+        <h1>Who's On Duty</h1>
+        <p class="subtitle">{{ on_duty_count }} of {{ total }} employees currently checked in</p>
+    </div>
+</div>
+
+<div class="employee-grid">
+    {% for employee in employees %}
+    <div class="employee-card {{ 'on-duty' if employee.on_duty else 'off-duty' }}">
+        <div class="employee-info">
+            <span class="status-dot"></span>
+            <div>
+                <div class="employee-name">{{ employee.name }}</div>
+                <div class="employee-role">{{ employee.role or "—" }}</div>
+            </div>
+        </div>
+        <div class="employee-meta">
+            <span class="status-label">{{ "On Duty" if employee.on_duty else "Off Duty" }}</span>
+            <span class="timestamp">Updated {{ employee.last_updated.strftime("%I:%M %p") }}</span>
+        </div>
+        <form method="POST" action="{{ url_for('checkin', employee_id=employee.id) }}">
+            <button type="submit" class="toggle-btn">
+                {{ "Check Out" if employee.on_duty else "Check In" }}
+            </button>
+        </form>
+    </div>
+    {% else %}
+    <p>No employees found. Run <code>flask --app app init-db</code> to seed demo data.</p>
+    {% endfor %}
+</div>
+{% endblock %}
