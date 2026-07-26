@@ -1,13 +1,13 @@
 # Duty Check-In Board
 
 A small Flask web app that replaces a pen-and-paper sign-in sheet.
-Staff can check in .
+Staff can check in.
 
 ## Features
-- Session-based login with hashed passwords (Flask-Login + Werkzeug)
-- Dashboard showing every employee's current status (On Duty / Off Duty)
+- Session-based login with hashed passwords (Flask-Login)
+- Dashboard showing every employee's current status (toggle On Duty / Off Duty)
 - One-click check-in / check-out with a timestamp
-- SQLite database — no external DB server needed
+- SQLite database
 
 ## Setup
 
